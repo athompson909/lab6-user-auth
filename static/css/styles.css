@@ -1,0 +1,48 @@
+body {
+  font-size: 24px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-size: 56px;
+  font-family: 'Francois One', sans-serif;
+}
+
+h2 {
+  font-size: 40px;
+  font-family: 'Francois One', sans-serif;
+}
+
+.row p, .row input {
+  line-height: 32px;
+  height: 32px;
+  margin: 0 0 10px;
+}
+
+.row input {
+  width: 300px;
+}
+
+.car-div img {
+  width: 100px;
+}
+
+.individual-car {
+  border: 2px solid #414141;
+  margin: 20px 0 20px 0;
+  padding: 20px;
+}
+
+.main-column {
+  background-color: #cccccc;
+  min-height: 1000px;
+}
+
+
+input[type=submit]{
+  /*font: 18px bold;
+  width: 120px;
+  color:white;  background:blue;
+  margin-top:15px;
+  margin-left:85px;*/
+}
