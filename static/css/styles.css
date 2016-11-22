@@ -38,6 +38,10 @@ h2 {
   min-height: 1000px;
 }
 
+#map {
+ height: 700px;
+ width: 100%;
+}
 
 input[type=submit]{
   /*font: 18px bold;

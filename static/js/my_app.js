@@ -1,4 +1,4 @@
-angular.module('myApp', ['uiGmapgoogle-maps'])
+angular.module('myApp', [])
   .controller('myController', ['$scope', '$http',
                               function($scope, $http) {
 
@@ -12,6 +12,20 @@ angular.module('myApp', ['uiGmapgoogle-maps'])
       $scope.error = data;
     });
 
-
-    $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
   }]);
+
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 4
+  });
+
+
+  var uluru = {lat: -25.363, lng: 131.044};
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map: map
+  });
+}
