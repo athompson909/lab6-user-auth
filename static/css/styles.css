@@ -23,16 +23,6 @@ h2 {
   width: 300px;
 }
 
-.car-div img {
-  width: 100px;
-}
-
-.individual-car {
-  border: 2px solid #414141;
-  margin: 20px 0 20px 0;
-  padding: 20px;
-}
-
 .main-column {
   background-color: #cccccc;
   min-height: 1000px;
@@ -41,6 +31,40 @@ h2 {
 #map {
  height: 700px;
  width: 100%;
+}
+
+#user-nav {
+  width: 100%;
+  margin:0;
+  padding:0;
+  background-color: #414141;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  height: 60px;
+  vertical-align: middle;
+}
+
+nav {
+  padding: 20px;
+  vertical-align: middle;
+  margin-right: 80px;
+}
+
+nav a {
+  padding: 4px 20px 24px 20px;
+  vertical-align: middle;
+}
+
+nav a, nav a:visited, nav a:active {
+  text-decoration: none;
+  color: #f2f2f2;
+}
+
+nav a:hover {
+  text-decoration: none;
+  background-color: #003333;
+  color: #f2f2f2;
 }
 
 input[type=submit]{
