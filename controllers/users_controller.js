@@ -1,4 +1,7 @@
 var crypto = require('crypto');
+var googleMapsClient = require('@google/maps').createClient({
+  key: 'AIzaSyDtWkCxBMVrziS_hxagImZumHnMvTsfZcw'
+});
 var mongoose = require('mongoose'),
     User = mongoose.model('User');
 function hashPW(pwd){
@@ -40,7 +43,7 @@ exports.login = function(req, res){
         req.session.user = user.id;
         req.session.username = user.username;
         req.session.msg = 'Authenticated as ' + user.username;
-        req.session.color = user.color;
+        req.session.locations = user.locations;
         res.redirect('/');
       });
     }else{
@@ -68,13 +71,36 @@ exports.updateUser = function(req, res){
   User.findOne({ _id: req.session.user })
   .exec(function(err, user) {
     user.set('email', req.body.email);
-    user.set('color', req.body.color);
+    console.log(req.body.locations);
+
+    var myLat, myLng, myLoc;
+
+    googleMapsClient.geocode({
+      address: req.body.locations
+    }, function(err, response) {
+      if (!err) {
+        console.log(response.json.results[0].geometry.location);
+	myLat = response.json.results[0].geometry.location.lat;
+	myLng = response.json.results[0].geometry.location.lng;
+	console.log("Latitude: " + myLat + " Longitude: " + myLng);
+      }
+    });
+
+    myLoc = {
+      lat: myLat,
+      long: myLng,
+      comments: [],
+      photosURL:""
+    };
+    
+    console.log(myLoc);
+   // user.locations.push(myLoc);
     user.save(function(err) {
       if (err){
         res.sessor.error = err;
       } else {
         req.session.msg = 'User Updated.';
-        req.session.color = req.body.color;
+        req.session.locations = req.body.locations;
       }
       res.redirect('/user');
     });
