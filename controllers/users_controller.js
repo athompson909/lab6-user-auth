@@ -83,8 +83,6 @@ exports.updateUser = function(req, res){
 	myLat = response.json.results[0].geometry.location.lat;
 	myLng = response.json.results[0].geometry.location.lng;
 	console.log("Latitude: " + myLat + " Longitude: " + myLng);
-      }
-    });
 
     myLoc = {
       lat: myLat,
@@ -94,7 +92,7 @@ exports.updateUser = function(req, res){
     };
     
     console.log(myLoc);
-   // user.locations.push(myLoc);
+   user.locations.push(myLoc);
     user.save(function(err) {
       if (err){
         res.sessor.error = err;
@@ -103,6 +101,8 @@ exports.updateUser = function(req, res){
         req.session.locations = req.body.locations;
       }
       res.redirect('/user');
+    });
+      }
     });
   });
 };
