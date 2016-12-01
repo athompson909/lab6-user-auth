@@ -7,6 +7,7 @@ var UserSchema = new Schema({
   },
   email: String,
   locations: [{
+    name: String,
     lat: Number,
     long: Number,
     comments: [String],

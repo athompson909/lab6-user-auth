@@ -71,7 +71,7 @@ exports.updateUser = function(req, res){
   User.findOne({ _id: req.session.user })
   .exec(function(err, user) {
     user.set('email', req.body.email);
-    console.log(req.body.locations);
+    var passedLoc = (req.body.locations);
 
     var myLat, myLng, myLoc;
 
@@ -85,6 +85,7 @@ exports.updateUser = function(req, res){
 	console.log("Latitude: " + myLat + " Longitude: " + myLng);
 
     myLoc = {
+      name: passedLoc,
       lat: myLat,
       long: myLng,
       comments: [],
