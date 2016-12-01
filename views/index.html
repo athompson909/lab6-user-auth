@@ -37,9 +37,18 @@
       <div class="col-md-10 col-md-offset-1 main-column">
         <br>
         <h3>Welcome. You are Logged In as <%= username %></h3>
-        <h4>your locations: </h4>
 
         <div id="map"></div>
+        <div id="sidebar">
+          <h3>My Locations</h3>
+          <hr>
+          <h4><input type="text"><button>Add new</button></h4>
+          <hr>
+          <div ng-repeat="location in locations">
+            <h4>Latitude: {{location.lat}}, Longitude: {{location.long}}</h4>
+            <hr>
+          </div>
+        </div>
         <script></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtWkCxBMVrziS_hxagImZumHnMvTsfZcw&callback=initMap"
         async defer></script>
@@ -49,4 +58,3 @@
   </div>
 </body>
 </html>
-
