@@ -42,10 +42,12 @@
         <div id="sidebar">
           <h3>My Locations</h3>
           <hr>
+	  <form method="POST" action="user/update/">
           <h4><input type="text"><button>Add new</button></h4>
           <hr>
+	  </form>
           <div ng-repeat="location in locations">
-            <h4>Latitude: {{location.lat}}, Longitude: {{location.long}}</h4>
+            <h4>{{location.name}}</h4>
             <hr>
           </div>
         </div>
