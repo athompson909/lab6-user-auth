@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
+
 <head>
   <title>Map</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -23,6 +24,7 @@
     firebase.initializeApp(config);
   </script>
 </head>
+
 <body>
   <div ng-controller="myController">
     <div>
@@ -42,21 +44,24 @@
         <div id="sidebar">
           <h3>My Locations</h3>
           <hr>
-	  <form method="POST" action="user/update/">
-          <h4><input type="text"><button>Add new</button></h4>
-          <hr>
-	  </form>
+          <form method="POST" action="user/update/">
+            <input type="hidden" name="email" ng-model="user.email">
+            <h4><input type="text" name="location">
+            <input type="submit" value="Add to Map"/>
+          </h4>
+            <hr>
+          </form>
           <div ng-repeat="location in locations">
             <h4>{{location.name}}</h4>
             <hr>
           </div>
         </div>
         <script></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtWkCxBMVrziS_hxagImZumHnMvTsfZcw&callback=initMap"
-        async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtWkCxBMVrziS_hxagImZumHnMvTsfZcw&callback=initMap" async defer></script>
 
       </div>
     </div>
   </div>
 </body>
+
 </html>
