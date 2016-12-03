@@ -46,10 +46,10 @@ angular.module('myApp', [])
       console.log($scope.locations);
       $scope.error = "";
 
-      $scope.$apply(function() {
-        $scope.user;
-        $scope.locations;
-      });
+     // $scope.$apply(function() {
+     //   $scope.user;
+     //   $scope.locations;
+     // });
 
     }).
     error(function(data, status, headers, config) {

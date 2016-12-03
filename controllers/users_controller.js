@@ -77,7 +77,9 @@ exports.getUserProfile = function(req, res) {
     });
 };
 exports.updateUser = function(req, res) {
-  User.findOne({
+   console.log("Updating user");
+   console.log(req.body);
+   User.findOne({
       _id: req.session.user
     })
     .exec(function(err, user) {
@@ -112,7 +114,7 @@ exports.updateUser = function(req, res) {
               req.session.msg = 'User Updated.';
               req.session.locations = user.locations;
             }
-            res.redirect('/');
+            res.redirect('http://ec2-35-162-240-187.us-west-2.compute.amazonaws.com:3000/');
           });
         }
       });

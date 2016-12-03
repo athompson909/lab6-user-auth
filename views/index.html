@@ -44,13 +44,15 @@
         <div id="sidebar">
           <h3>My Locations</h3>
           <hr>
-          <form method="POST" action="user/update/">
-            <input type="hidden" name="email" ng-model="user.email">
-            <h4><input type="text" name="location">
-            <input type="submit" value="Add to Map"/>
-          </h4>
-            <hr>
-          </form>
+          <form method="POST" action="/user/update">
+	              <input style="display:none;" type="text" name="username"
+	                     ng-model="user.username">
+	              <input style="display:none;" type="email" name="email"
+	                      ng-model="user.email">
+	              <input type="text" name="locations" autocomplete="off" required><br>	  
+	          <input type="submit" value="Add to Map">
+	  </form>
+	  <hr>
           <div ng-repeat="location in locations">
             <h4>{{location.name}}</h4>
             <hr>
