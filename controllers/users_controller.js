@@ -114,7 +114,7 @@ exports.updateUser = function(req, res) {
               req.session.msg = 'User Updated.';
               req.session.locations = user.locations;
             }
-            res.redirect('http://ec2-35-162-240-187.us-west-2.compute.amazonaws.com:3000/');
+            res.redirect('http://ec2-35-162-240-187.us-west-2.compute.amazonaws.com:3004/');
           });
         }
       });
